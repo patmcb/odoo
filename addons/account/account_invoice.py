@@ -419,8 +419,8 @@ class account_invoice(models.Model):
         for invoice in self:
             if invoice.state not in ('draft', 'cancel'):
                 raise Warning(_('You cannot delete an invoice which is not draft or cancelled. You should refund it instead.'))
-            elif invoice.internal_number:
-                raise Warning(_('You cannot delete an invoice after it has been validated (and received a number).  You can set it back to "Draft" state and modify its content, then re-confirm it.'))
+           # elif invoice.internal_number:
+           #     raise Warning(_('You cannot delete an invoice after it has been validated (and received a number).  You can set it back to "Draft" state and modify its content, then re-confirm it.'))
         return super(account_invoice, self).unlink()
 
     @api.multi
